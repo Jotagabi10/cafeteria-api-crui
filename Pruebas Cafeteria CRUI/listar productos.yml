@@ -1,0 +1,75 @@
+info:
+  name: listar productos
+  type: http
+  seq: 2
+
+http:
+  method: GET
+  url: http://localhost:3000/api/productos
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
+
+examples:
+  - name: listar productos
+    request:
+      url: http://localhost:3000/api/productos
+      method: GET
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: x-powered-by
+          value: Express
+        - name: content-type
+          value: application/json; charset=utf-8
+        - name: content-length
+          value: "344"
+        - name: etag
+          value: W/"158-h5IdDgaohYj0OwRKv+mqtdsX4/E"
+        - name: date
+          value: Tue, 24 Nov 2026 12:41:12 GMT
+        - name: connection
+          value: keep-alive
+        - name: keep-alive
+          value: timeout=5
+      body:
+        type: json
+        data: |-
+          [
+            {
+              "id": 1,
+              "nombre": "Café con leche",
+              "precio": 1800,
+              "categoria": "bebida"
+            },
+            {
+              "id": 2,
+              "nombre": "Medialuna",
+              "precio": 900,
+              "categoria": "comida"
+            },
+            {
+              "id": 3,
+              "nombre": "Tostado de jamón y queso",
+              "precio": 3500,
+              "categoria": "comida"
+            },
+            {
+              "id": 4,
+              "nombre": "Agua mineral",
+              "precio": 1200,
+              "categoria": "bebida"
+            },
+            {
+              "id": 5,
+              "nombre": "Té",
+              "precio": 1500,
+              "categoria": "bebida"
+            }
+          ]

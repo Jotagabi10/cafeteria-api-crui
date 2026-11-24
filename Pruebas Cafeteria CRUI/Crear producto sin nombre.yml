@@ -1,0 +1,24 @@
+info:
+  name: Crear producto sin nombre
+  type: http
+  seq: 9
+
+http:
+  method: POST
+  url: http://localhost:3000/api/productos
+  body:
+    type: json
+    data: |-
+      {
+        "nombre": "   ",
+        "precio": 1500,
+        "categoria": "bebida"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

@@ -1,0 +1,65 @@
+info:
+  name: modificar un producto
+  type: http
+  seq: 6
+
+http:
+  method: PUT
+  url: http://localhost:3000/api/productos/2
+  body:
+    type: json
+    data: |-
+      {
+        "nombre": "Medialuna",
+        "precio": 1000,
+        "categoria": "comida"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
+
+examples:
+  - name: modificar producto
+    request:
+      url: http://localhost:3000/api/productos/2
+      method: PUT
+      body:
+        type: json
+        data: |-
+          {
+            "nombre": "Medialuna",
+            "precio": 1000,
+            "categoria": "comida"
+          }
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: x-powered-by
+          value: Express
+        - name: content-type
+          value: application/json; charset=utf-8
+        - name: content-length
+          value: "64"
+        - name: etag
+          value: W/"40-klve9Ka+5mzYZ0UhvpSxEwcuPB8"
+        - name: date
+          value: Tue, 24 Nov 2026 12:57:41 GMT
+        - name: connection
+          value: keep-alive
+        - name: keep-alive
+          value: timeout=5
+      body:
+        type: json
+        data: |-
+          {
+            "id": 2,
+            "nombre": "Medialuna",
+            "precio": 1000,
+            "categoria": "comida"
+          }
